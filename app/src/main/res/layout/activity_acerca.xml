@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTituloAcerca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acerca de nosotros"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Icono representativo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_info_outline"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="ContinuApp es una aplicación educativa creada con el objetivo de apoyar a los estudiantes en la comprensión y aplicación de la ecuación de continuidad de Bernoulli. A través de una interfaz amigable y explicaciones claras, buscamos facilitar el aprendizaje de conceptos fundamentales en física de fluidos."
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <!-- Desarrollador o equipo -->
+        <TextView
+            android:text="Desarrollado por:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Camila Beatriz Gutiérrez Martínez\nPaola Montserrat Martínez Ibarra\nJuan Pablo Gutiérrez Banda\nVictor Manuel Cano Cruz\nAlexis Miguel García González
+            \n\nColegio de Estudios Científicos y Tecnológicos del Estado de México\n\nProgramación"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Versión -->
+        <TextView
+            android:text="Versión 1.0"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Botón volver -->
+        <Button
+            android:id="@+id/btnVolverAcerca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver"
+            android:backgroundTint="#1E88E5"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Titulo -->
+        <TextView
+            android:id="@+id/tvTituloAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ayuda"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Icono representativo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_help_outline"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Sección: ¿Qué hace esta app? -->
+        <TextView
+            android:text="¿Qué hace esta app?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="4dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="ContinuApp te ayuda a calcular la velocidad de un fluido cuando cambia el diámetro de una tubería, aplicando la ecuación de continuidad de Bernoulli. Solo necesitas ingresar el diámetro inicial, la velocidad del fluido y el diámetro final."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <!-- Sección: ¿Cómo usarla? -->
+        <TextView
+            android:text="¿Cómo usarla?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="4dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="1. Inicia sesión.\n2. En la pantalla principal, ingresa los valores solicitados.\n3. Presiona el botón 'Calcular'.\n4. Revisa el detalle del cálculo paso a paso.\n5. Consulta esta sección si necesitas más orientación."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <!-- Sección: ¿Qué es la ecuación de continuidad? -->
+        <TextView
+            android:text="¿Qué es la ecuación de continuidad?"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="4dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Es una expresión matemática que relaciona la velocidad y el área de una sección de una tubería con otra sección diferente. Se basa en el principio de conservación de la masa. La fórmula es: A₁ × V₁ = A₂ × V₂."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <!-- Sección: Ejemplo -->
+        <TextView
+            android:text="Ejemplo rápido"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1"
+            android:layout_marginBottom="4dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Si una tubería tiene un diámetro de 10 cm y el fluido se mueve a 2 m/s, y se reduce a 5 cm, la app calculará la nueva velocidad aplicando la fórmula correspondiente."
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <!-- Botón volver -->
+        <Button
+            android:id="@+id/btnVolverAyuda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entendido"
+            android:backgroundTint="#1E88E5"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>

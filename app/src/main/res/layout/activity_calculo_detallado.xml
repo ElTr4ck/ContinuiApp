@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Titulo -->
+        <TextView
+            android:id="@+id/tvTituloCalculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detalles del cálculo"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_gravity="center"/>
+
+        <!-- Separador -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="#BDBDBD" />
+
+        <!-- Fórmula general -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usamos la ecuación de continuidad:"
+            android:textSize="16sp"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/tvFormula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A₁ × V₁ = A₂ × V₂"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Sustitución de valores -->
+        <TextView
+            android:id="@+id/tvSustitucion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sustituimos los valores ingresados:"
+            android:textSize="16sp"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/tvEcuacionSustituida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="π × (Y/2)² × VY = π × (X/2)² × VX"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Áreas calculadas -->
+        <TextView
+            android:id="@+id/tvArea1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Área 1 (A₁) = ..."
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvArea2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Área 2 (A₂) = ..."
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Resolución de VX -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Despejamos V₂ (velocidad final):"
+            android:textSize="16sp"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/tvResultadoFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VX = ..."
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Botón volver -->
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver"
+            android:backgroundTint="#1E88E5"
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>
