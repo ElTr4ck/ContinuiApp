@@ -12,19 +12,21 @@ import com.example.continuiapp.basedatos.*;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    private EditText editTextNombre, editTextEmail, editTextPassword;
+    private EditText editTextNombre, editTextEmail, editTextPassword, editTextConfirmarPassword;
     private Button btnRegistrar;
     private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Oculta la barra de acción
         setContentView(R.layout.activity_registro);
 
         // Referencias UI
         editTextNombre = findViewById(R.id.etNombre);
         editTextEmail = findViewById(R.id.etEmailRegistro);
         editTextPassword = findViewById(R.id.etPasswordRegistro);
+        editTextConfirmarPassword = findViewById(R.id.etConfirmPassword);
         btnRegistrar = findViewById(R.id.btnRegistrar);
 
         // Acceso a la base de datos
@@ -39,6 +41,12 @@ public class RegistroActivity extends AppCompatActivity {
 
                 if (nombre.isEmpty() || email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(RegistroActivity.this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Verificar si la contraseña y la confirmación son iguales
+                if (!password.equals(editTextConfirmarPassword.getText().toString().trim())) {
+                    Toast.makeText(RegistroActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

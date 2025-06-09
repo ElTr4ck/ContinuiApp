@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.continuiapp.basedatos.*;
+import com.example.continuiapp.utils.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Oculta la barra de acción
         setContentView(R.layout.activity_login);
 
         etEmail = findViewById(R.id.etEmail);
@@ -40,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                 Usuario usuario = usuarioDAO.login(email, password);
                 if (usuario != null) {
                     Toast.makeText(this, "¡Bienvenido " + usuario.nombre + "!", Toast.LENGTH_SHORT).show();
+                    SessionManager sessionManager = new SessionManager(getApplicationContext());
+                    sessionManager.guardarSesion(usuario.getEmail());
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 } else {

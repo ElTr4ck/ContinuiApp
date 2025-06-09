@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Area Units -->
+    <string-array name="area_units">
+        <item>m²</item>
+        <item>cm²</item>
+        <item>mm²</item>
+        <item>in²</item>
+        <item>ft²</item>
+    </string-array>
+
+    <!-- Velocity Units -->
+    <string-array name="velocity_units">
+        <item>m/s</item>
+        <item>cm/s</item>
+        <item>mm/s</item>
+        <item>km/h</item>
+        <item>ft/s</item>
+        <item>mph</item>
+    </string-array>
+</resources>

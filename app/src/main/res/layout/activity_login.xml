@@ -7,33 +7,36 @@
     android:background="#FAFAFA"
     android:padding="32dp">
 
-    <!-- App Logo/Icon Placeholder -->
-    <View
-        android:id="@+id/vAppIcon"
+    <!-- Logo de la Aplicación -->
+
+    <ImageView
+        android:id="@+id/imgLogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="@drawable/app_icon_background"
+        android:src="@drawable/logo_continui_app"
+        android:contentDescription="Logo de ContinuApp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="60dp"
+        android:scaleType="centerInside"/>
 
-    <!-- App Name -->
+    <!-- Nombre de la aplicación -->
     <TextView
         android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ContinuApp"
+        android:text="ContinuiApp"
         android:textSize="28sp"
         android:textColor="#1A1A1A"
         android:textStyle="bold"
         android:letterSpacing="0.02"
-        app:layout_constraintTop_toBottomOf="@id/vAppIcon"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- Welcome Message -->
+    <!-- Mensaje de bienvenida -->
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
@@ -46,17 +49,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"/>
 
-    <!-- Email Input Container -->
+    <!-- Contenedor de email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Correo electrónico"
+        app:hintTextColor="#FF1A1A1A"
+        android:inputType="textEmailAddress"
+        android:textColor="#FF1A1A1A"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tvWelcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="48dp"
         app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeColor="#3F51B5"
         app:boxCornerRadiusTopStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -66,14 +75,17 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Correo Electrónico"
+            app:hintTextColor="#1A1A1A"
             android:inputType="textEmailAddress"
+
+            android:padding="16dp"
             android:textColor="#1A1A1A"
-            android:textSize="16sp"
-            android:padding="16dp"/>
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Password Input Container -->
+    <!-- Contenedor de contraseña -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
         android:layout_width="0dp"
@@ -84,6 +96,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         app:boxBackgroundMode="outline"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeColor="#3F51B5"
         app:boxCornerRadiusTopStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -94,30 +108,15 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Contraseña"
             android:inputType="textPassword"
+            android:padding="16dp"
             android:textColor="#1A1A1A"
-            android:textSize="16sp"
-            android:padding="16dp"/>
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Forgot Password Link -->
-    <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¿Olvidaste tu contraseña?"
-        android:textColor="#1976D2"
-        android:textSize="14sp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
-
-    <!-- Login Button -->
+    <!-- Boton de inicio de sesión -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
@@ -129,7 +128,7 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="#1976D2"
         app:cornerRadius="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"/>
@@ -147,7 +146,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"/>
 
-    <!-- Register Text -->
+    <!-- Textview de Registro -->
     <TextView
         android:id="@+id/tvRegisterPrompt"
         android:layout_width="wrap_content"
@@ -162,7 +161,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"/>
 
-    <!-- Register Link -->
+    <!-- Boton de Registro -->
     <TextView
         android:id="@+id/tvRegisterLink"
         android:layout_width="wrap_content"

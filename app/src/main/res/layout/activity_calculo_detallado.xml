@@ -1,114 +1,509 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:id="@+id/scrollView"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="#FFFFFF">
+    android:background="#FAFAFA"
+    android:fillViewport="true">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="24dp">
 
-        <!-- Titulo -->
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/llHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Volver"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Calculadora de Flujo"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A1A"
+                android:layout_marginStart="16dp"/>
+
+            <ImageButton
+                android:id="@+id/btnInfo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_info"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Información"/>
+
+        </LinearLayout>
+
+        <!-- Formula Display -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvFormula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#E3F2FD"
+            app:layout_constraintTop_toBottomOf="@id/llHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ecuación de Continuidad"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A₁ × V₁ = A₂ × V₂"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Instructions -->
         <TextView
-            android:id="@+id/tvTituloCalculo"
+            android:id="@+id/tvInstructions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Completa 3 de los 4 valores. El campo vacío será calculado automáticamente."
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/cvFormula"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Section 1 Title -->
+        <TextView
+            android:id="@+id/tvSection1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detalles del cálculo"
-            android:textSize="22sp"
+            android:text="Punto 1 (Inicial)"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="#1A237E"
-            android:layout_gravity="center"/>
+            android:textColor="#1976D2"
+            app:layout_constraintTop_toBottomOf="@id/tvInstructions"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"/>
 
-        <!-- Separador -->
+        <!-- Area 1 Input -->
+        <LinearLayout
+            android:id="@+id/llArea1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvSection1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilArea1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Área A₁"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_area"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etArea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#1A1A1A"
+                    android:textSize="16sp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinnerArea1Units"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:background="@drawable/spinner_background"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Velocity 1 Input -->
+        <LinearLayout
+            android:id="@+id/llVelocity1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/llArea1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVelocity1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Velocidad V₁"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_speed"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVelocity1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#1A1A1A"
+                    android:textSize="16sp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinnerVelocity1Units"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:background="@drawable/spinner_background"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Divider -->
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:background="#BDBDBD" />
+            android:id="@+id/vDivider"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider_gradient"
+            app:layout_constraintTop_toBottomOf="@id/llVelocity1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"/>
 
-        <!-- Fórmula general -->
+        <!-- Section 2 Title -->
         <TextView
+            android:id="@+id/tvSection2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usamos la ecuación de continuidad:"
-            android:textSize="16sp"
-            android:textColor="#212121" />
-
-        <TextView
-            android:id="@+id/tvFormula"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A₁ × V₁ = A₂ × V₂"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Sustitución de valores -->
-        <TextView
-            android:id="@+id/tvSustitucion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sustituimos los valores ingresados:"
-            android:textSize="16sp"
-            android:textColor="#212121" />
-
-        <TextView
-            android:id="@+id/tvEcuacionSustituida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="π × (Y/2)² × VY = π × (X/2)² × VX"
+            android:text="Punto 2 (Final)"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+            android:textColor="#1976D2"
+            app:layout_constraintTop_toBottomOf="@id/vDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"/>
 
-        <!-- Áreas calculadas -->
-        <TextView
-            android:id="@+id/tvArea1"
-            android:layout_width="wrap_content"
+        <!-- Area 2 Input -->
+        <LinearLayout
+            android:id="@+id/llArea2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Área 1 (A₁) = ..."
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvSection2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/tvArea2"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilArea2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Área A₂"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_area"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etArea2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#1A1A1A"
+                    android:textSize="16sp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinnerArea2Units"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:background="@drawable/spinner_background"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Velocity 2 Input -->
+        <LinearLayout
+            android:id="@+id/llVelocity2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Área 2 (A₂) = ..."
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/llArea2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVelocity2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Velocidad V₂"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_speed"
+                android:layout_marginEnd="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVelocity2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="#1A1A1A"
+                    android:textSize="16sp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinnerVelocity2Units"
+                android:layout_width="100dp"
+                android:layout_height="56dp"
+                android:background="@drawable/spinner_background"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <!-- Calculate Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculate"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="Calcular"
+            android:textAllCaps="false"
             android:textSize="16sp"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Resolución de VX -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Despejamos V₂ (velocidad final):"
-            android:textSize="16sp"
-            android:textColor="#212121" />
-
-        <TextView
-            android:id="@+id/tvResultadoFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VX = ..."
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#2E7D32"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Botón volver -->
-        <Button
-            android:id="@+id/btnVolver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Volver"
-            android:backgroundTint="#1E88E5"
             android:textColor="#FFFFFF"
-            android:textAllCaps="false" />
+            app:backgroundTint="#1976D2"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_calculate"
+            app:iconGravity="textStart"
+            app:layout_constraintTop_toBottomOf="@id/llVelocity2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"/>
 
-    </LinearLayout>
+        <!-- Clear All Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="Limpiar Todo"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            app:backgroundTint="@android:color/transparent"
+            app:strokeColor="#E0E0E0"
+            app:strokeWidth="1dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_clear"
+            app:iconGravity="textStart"
+            app:iconTint="#666666"
+            app:layout_constraintTop_toBottomOf="@id/btnCalculate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Results Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvResults"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#E8F5E8"
+            app:layout_constraintTop_toBottomOf="@id/btnClear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:contentDescription="Resultado"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resultado"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"/>
+
+                </LinearLayout>
+
+                <!-- Main Result -->
+                <TextView
+                    android:id="@+id/tvCalculatedParameter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Velocidad V₂ ="
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvResultValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15.75 m/s"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:fontFamily="monospace"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CCDDCC"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Flow Rate Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_water_flow"
+                        android:contentDescription="Gasto"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gasto del sistema"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#1565C0"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSystemFlowRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q = 157.50 m³/s"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A1A"
+                    android:fontFamily="monospace"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Flow Rate Formula -->
+                <TextView
+                    android:id="@+id/tvFlowRateFormula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q = A₁ × V₁ = A₂ × V₂"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Save Result Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="Guardar"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    android:textColor="#1976D2"
+                    app:backgroundTint="@android:color/transparent"
+                    app:cornerRadius="8dp"
+                    app:icon="@drawable/ic_save"
+                    app:iconGravity="textStart"
+                    app:iconSize="16dp"
+                    app:iconTint="#1976D2"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

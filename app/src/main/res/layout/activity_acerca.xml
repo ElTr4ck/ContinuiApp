@@ -51,7 +51,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="Camila Beatriz Gutiérrez Martínez\nPaola Montserrat Martínez Ibarra\nJuan Pablo Gutiérrez Banda\nVictor Manuel Cano Cruz\nAlexis Miguel García González
+            android:text="Camila Beatriz Gutiérrez Martínez\nPaola Montserrat Martínez Ibarra\nJuan Pablo Gutiérrez Banda\nVictor Manuel Cano Cruz\nAlexis Miguel García González\nIvan Ruiz Arcos
             \n\nColegio de Estudios Científicos y Tecnológicos del Estado de México\n\nProgramación"
             android:textSize="16sp"
             android:layout_marginBottom="16dp"
